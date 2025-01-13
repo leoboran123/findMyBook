@@ -8,7 +8,10 @@ import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import org.springframework.stereotype.Repository;
+import java.util.Optional;
+
 
 import jakarta.annotation.PostConstruct;
 
@@ -18,6 +21,16 @@ public class RunRepository {
 
     List<Run> findAll(){
         return runs;
+    }
+
+    Optional<Run> findById(Integer id){
+        // Optional is a container object which may or may not contain a non-null value. 
+        // so basically, when we do a database or API request, it return the values, if values does
+        // not exist, it returns an exception.
+
+        return runs.stream()
+            .filter(run -> run.Id() == id)
+            .findFirst();
     }
 
     @PostConstruct
