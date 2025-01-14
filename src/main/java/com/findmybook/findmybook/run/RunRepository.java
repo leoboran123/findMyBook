@@ -23,6 +23,24 @@ public class RunRepository {
         return runs;
     }
 
+    void create(Run run){
+        runs.add(run);
+    }
+
+    void update(Run run, Integer id){
+        Optional<Run> existingRun = findById(id);
+
+        if(existingRun.isPresent()){
+            runs.set(runs.indexOf(existingRun.get()), run);
+        }
+    }
+
+    void delete(Integer id){
+        runs.removeIf(run -> run.Id().equals(id));
+    }
+
+
+
     Optional<Run> findById(Integer id){
         // Optional is a container object which may or may not contain a non-null value. 
         // so basically, when we do a database or API request, it return the values, if values does
