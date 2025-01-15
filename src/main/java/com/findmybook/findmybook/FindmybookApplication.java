@@ -7,11 +7,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.boot.CommandLineRunner;
+
 import java.time.temporal.ChronoUnit;
 
 import java.time.LocalDateTime;
 
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
+@EnableConfigurationProperties
 @SpringBootApplication
 @ComponentScan
 public class FindmybookApplication {
